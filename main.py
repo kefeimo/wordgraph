@@ -1,15 +1,26 @@
 from __future__ import annotations
 from typing import Dict, List, FrozenSet
+from wordtree.treefactory import WordTreeFactory
+from utils.dataloader import word_definition_dict
 
-from utils.dataloader import WordnetDict
 
 if __name__ == "__main__":
 
-    dict_test: Dict[str, FrozenSet[str]] = WordnetDict
-    print(len(dict_test.keys()))
+    word = "tree"
+    tree = WordTreeFactory.create_fullgrowntree(word)
+    print("tree.seed", tree.seed)
+    print("tree.depth", tree.depth)
+    print("number of nodes", len(tree.nodes))
+    tree_list = tree.adjacent_list
+    print("number of edges", len(tree_list))
 
-    item_test= [i for i in dict_test.items()][0]
-    print(type(item_test[1]))
+    print()
+    print("Dependencies at first 2 depths")
+    print(tree.nodes_snapshots[:2])
+    print("tree definition")
+    print(word_definition_dict.get(word))
+
+
 
 
 
