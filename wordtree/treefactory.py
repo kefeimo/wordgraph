@@ -35,7 +35,7 @@ class WordTreeFactory(ITreeFactory):
     def create_fullgrowntree(seed: str) -> WordTreeFullGrown:
         wordtree: WordTree = WordTree(seed)
         wordtree.modify_depth(100)  # magic number 100 to make sure hit the maximum depth
-        adjacent_list = wordtree.to_adjacentlist()
+        adjacent_list = wordtree.to_adjacencylist()
 
         return WordTreeFullGrown(seed=wordtree.seed,
                                  depth=wordtree.depth,

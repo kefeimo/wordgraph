@@ -12,7 +12,7 @@ class WordTreeFullGrown:
     nodes: Set[str]
     seeds_nextrnd_records: List[Set[str]]
     nodes_snapshots: List[Set[str]]
-    adjacent_list: Dict[str, FrozenSet[str]]
+    adjacency_list: Dict[str, FrozenSet[str]]
 
     def __repr__(self):
         return f"{self.__class__.__name__}(seed={self.seed}, depth={self.depth})"
@@ -79,7 +79,7 @@ class WordTreeTemplate:  # to-do: avoid direct instantiation
         if self._depth < depth_aim:  # update the depth_aim limit
             self._depth_limit = self._depth
 
-    def to_adjacentlist(self) -> Dict[str, FrozenSet[str]]:
+    def to_adjacencylist(self) -> Dict[str, FrozenSet[str]]:
         """
         represent topology in adjacent list,
         e.g. {seed1: {depnd1, depend2, ...}, seed2: {depnd10, depnd32, ...}, ...}

@@ -87,7 +87,7 @@ class TestWordTree(unittest.TestCase):
     def test_to_adjacentlist(self):
         wordtree_test: WordTree = WordTreeFactory._create_wordtree_cache("seed")
         wordtree_test.modify_depth(0)
-        adlist = wordtree_test.to_adjacentlist()
+        adlist = wordtree_test.to_adjacencylist()
         self.assertEqual({'seed': frozenset(
             {'a', 'an', 'bear', 'by', 'cause', 'coat', 'consisting', 'containing', 'development', 'disperse',
              'distribute', 'early', 'ejaculated', 'embryo', 'enterprise', 'fertilized', 'fluid', 'food', 'fruit',
@@ -150,12 +150,12 @@ class TestWordTreeFullGrown(unittest.TestCase):
         wordtree_fullgrown_test: WordTreeFullGrown = WordTreeFactory.create_fullgrowntree("seed")
         wordtree_test: WordTree = WordTreeFactory._create_wordtree_cache("seed")
         wordtree_test.modify_depth(30)
-        self.assertEqual(wordtree_test.to_adjacentlist(), wordtree_fullgrown_test.adjacent_list)
+        self.assertEqual(wordtree_test.to_adjacencylist(), wordtree_fullgrown_test.adjacency_list)
 
     # test to_adjacentlist speed
     def test_to_adjacentlist_2(self):
         wordtree_fullgrown_test: WordTreeFullGrown = WordTreeFactory.create_fullgrowntree("seed")
-        wordtree_fullgrown_test.adjacent_list
+        wordtree_fullgrown_test.adjacency_list
         # wordtree_test: WordTree = WordTreeFactory._create_wordtree_cache("seed")
         # wordtree_test.modify_depth(30)
         # self.assertEqual(wordtree_test.to_adjacentlist(), wordtree_fullgrown_test.adjacent_list)

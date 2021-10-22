@@ -11,7 +11,7 @@ if __name__ == "__main__":
     print("tree.seed", tree.seed)
     print("tree.depth", tree.depth)
     print("number of nodes", len(tree.nodes))
-    tree_list = tree.adjacent_list
+    tree_list = tree.adjacency_list
     print("number of edges", len(tree_list))
 
     print()
